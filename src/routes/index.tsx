@@ -158,30 +158,82 @@ function Manifesto() {
   );
 }
 
-function Shop() {
+type CollectionKey = keyof typeof COLLECTIONS;
+
+function Collection({ k, id }: { k: CollectionKey; id?: string }) {
+  const c = COLLECTIONS[k];
+  const items = c.ids.map((pid) => products.find((p) => p.id === pid)!).filter(Boolean);
+  const gridCols = c.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3";
   return (
-    <section id="shop" className="bg-cream px-6 py-20">
+    <section id={id} className={`${c.bg} px-6 py-20`}>
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="font-display text-5xl uppercase md:text-6xl">
-              Fresh Garbage
-            </h2>
-            <p className="mt-2 text-sm font-bold uppercase opacity-60">
-              The current inventory of poor decisions →
-            </p>
+            <h2 className="font-display text-5xl uppercase md:text-6xl">{c.title}</h2>
+            <p className="mt-2 text-sm font-bold uppercase opacity-60">{c.sub}</p>
           </div>
-          <span className="border-2 border-ink bg-zap px-3 py-1 text-xs font-bold uppercase shadow-brutal-sm">
-            6 styles · always selling out
+          <span className="border-2 border-ink bg-bone px-3 py-1 text-xs font-bold uppercase text-ink shadow-brutal-sm">
+            {c.chip}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((p, i) => (
+        <div className={`grid grid-cols-1 gap-12 ${gridCols}`}>
+          {items.map((p, i) => (
             <ProductCard key={p.id} p={p} accent={ACCENTS[i % 3]} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function DividerMarquee({ text, bg = "bg-ink", fg = "text-bone" }: { text: string; bg?: string; fg?: string }) {
+  const row = Array.from({ length: 8 }, () => text);
+  return (
+    <div className={`border-y-4 border-ink ${bg} py-3 ${fg}`}>
+      <div className="flex animate-marquee whitespace-nowrap gap-12 font-display text-xl uppercase">
+        {[...row, ...row].map((t, i) => (
+          <span key={i} className="flex items-center gap-12">★ {t}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DividerStitch() {
+  return (
+    <div className="relative h-10 border-y-4 border-ink overflow-hidden">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, var(--ink) 0 12px, var(--bone) 12px 24px)",
+        }}
+      />
+    </div>
+  );
+}
+
+function DividerTape() {
+  return (
+    <div className="relative bg-bone py-8">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-6">
+        <div className="h-2 flex-1 bg-ink" />
+        <span className="-rotate-2 border-4 border-ink bg-zap px-4 py-1 font-display text-2xl uppercase shadow-brutal-sm">
+          ⚠ Caution: Hot Drops
+        </span>
+        <div className="h-2 flex-1 bg-ink" />
+      </div>
+    </div>
+  );
+}
+
+function DividerBigType() {
+  return (
+    <div className="overflow-hidden border-y-4 border-ink bg-zap">
+      <p className="whitespace-nowrap text-center font-display text-[16vw] uppercase leading-none tracking-tighter md:text-[12vw]">
+        ✕ More Bad Ideas ✕
+      </p>
+    </div>
   );
 }
 
