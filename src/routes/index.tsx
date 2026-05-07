@@ -163,7 +163,7 @@ type CollectionKey = keyof typeof COLLECTIONS;
 function Collection({ k, id }: { k: CollectionKey; id?: string }) {
   const c = COLLECTIONS[k];
   const items = c.ids.map((pid) => products.find((p) => p.id === pid)!).filter(Boolean);
-  const gridCols = c.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3";
+  const gridCols = c.cols === 2 ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-3";
   return (
     <section id={id} className={`${c.bg} px-6 py-20`}>
       <div className="mx-auto max-w-7xl">
@@ -176,7 +176,7 @@ function Collection({ k, id }: { k: CollectionKey; id?: string }) {
             {c.chip}
           </span>
         </div>
-        <div className={`grid grid-cols-1 gap-12 ${gridCols}`}>
+        <div className={`grid gap-6 md:gap-12 ${gridCols}`}>
           {items.map((p, i) => (
             <ProductCard key={p.id} p={p} accent={ACCENTS[i % 3]} />
           ))}
