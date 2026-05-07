@@ -176,7 +176,7 @@ function Collection({ k, id }: { k: CollectionKey; id?: string }) {
             {c.chip}
           </span>
         </div>
-        <div className={`grid grid-cols-1 gap-12 ${gridCols}`}>
+        <div className={`grid gap-6 md:gap-12 ${gridCols}`}>
           {items.map((p, i) => (
             <ProductCard key={p.id} p={p} accent={ACCENTS[i % 3]} />
           ))}
