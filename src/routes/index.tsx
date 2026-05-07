@@ -163,7 +163,7 @@ type CollectionKey = keyof typeof COLLECTIONS;
 function Collection({ k, id }: { k: CollectionKey; id?: string }) {
   const c = COLLECTIONS[k];
   const items = c.ids.map((pid) => products.find((p) => p.id === pid)!).filter(Boolean);
-  const gridCols = c.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3";
+  const gridCols = c.cols === 2 ? "grid-cols-2" : "grid-cols-2 lg:grid-cols-3";
   return (
     <section id={id} className={`${c.bg} px-6 py-20`}>
       <div className="mx-auto max-w-7xl">
