@@ -26,6 +26,41 @@ export const Route = createFileRoute("/")({
 
 const ACCENTS = ["zap", "shock", "ink"] as const;
 
+const COLLECTIONS = {
+  freshGarbage: {
+    title: "Fresh Garbage",
+    sub: "The current inventory of poor decisions →",
+    chip: "6 styles · always selling out",
+    bg: "bg-cream",
+    ids: ["fine", "grass", "ghost", "overthinker", "banana", "nottoday"],
+    cols: 3,
+  },
+  emotionalDamage: {
+    title: "Emotional Damage",
+    sub: "Therapy is expensive. Cotton isn't. ←",
+    chip: "ships with a free apology",
+    bg: "bg-zap",
+    ids: ["fine", "overthinker", "ghost", "nottoday"],
+    cols: 2,
+  },
+  hostileWholesome: {
+    title: "Hostile & Wholesome",
+    sub: "Smiling through the rage. ★",
+    chip: "vibes: passive aggressive picnic",
+    bg: "bg-bone",
+    ids: ["grass", "banana", "nottoday", "fine"],
+    cols: 2,
+  },
+  loudIntroverts: {
+    title: "Loud Introverts Club",
+    sub: "Screaming silently in cotton. ✕",
+    chip: "members only · everyone welcome",
+    bg: "bg-shock text-bone",
+    ids: ["ghost", "overthinker", "banana", "grass"],
+    cols: 2,
+  },
+} as const;
+
 const REVIEWS = [
   { q: "My therapist asked where I got it.", n: "— Jamie, repeat offender" },
   { q: "Wore this to my ex's wedding. Worth it.", n: "— Sam, drama enthusiast" },
