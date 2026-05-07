@@ -364,7 +364,14 @@ function Index() {
           <Hero />
           <Marquee />
           <Manifesto />
-          <Shop />
+          <Collection k="freshGarbage" id="shop" />
+          <DividerStitch />
+          <Collection k="emotionalDamage" id="emotional-damage" />
+          <DividerTape />
+          <Collection k="hostileWholesome" id="hostile-wholesome" />
+          <DividerBigType />
+          <Collection k="loudIntroverts" id="loud-introverts" />
+          <DividerMarquee text="LIMITED · LOUD · LIGHTLY UNHINGED" bg="bg-ink" fg="text-bone" />
           <Reviews />
           <Newsletter />
         </main>
