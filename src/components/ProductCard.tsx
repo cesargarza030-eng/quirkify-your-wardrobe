@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import type { Product } from "@/lib/products";
 import { useCart } from "./CartContext";
 
