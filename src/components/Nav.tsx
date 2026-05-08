@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useCart } from "./CartContext";
 
 export function Nav() {
@@ -5,13 +6,13 @@ export function Nav() {
   return (
     <nav className="sticky top-0 z-40 border-b-4 border-ink bg-bone">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 md:py-4">
-        <a href="#top" className="font-display text-2xl uppercase tracking-tighter md:text-3xl">
+        <Link to="/" className="font-display text-2xl uppercase tracking-tighter md:text-3xl">
           Clown Corps<span className="text-shock">.</span>
-        </a>
+        </Link>
         <div className="hidden gap-8 text-xs font-bold uppercase tracking-widest md:flex">
-          <a href="#shop" className="transition-colors hover:text-shock">Shop</a>
-          <a href="#manifesto" className="transition-colors hover:text-shock">Manifesto</a>
-          <a href="#reviews" className="transition-colors hover:text-shock">Reviews</a>
+          <Link to="/" hash="shop" className="transition-colors hover:text-shock">Shop</Link>
+          <Link to="/" hash="manifesto" className="transition-colors hover:text-shock">Manifesto</Link>
+          <Link to="/" hash="reviews" className="transition-colors hover:text-shock">Reviews</Link>
         </div>
         <button
           onClick={() => setOpen(true)}
