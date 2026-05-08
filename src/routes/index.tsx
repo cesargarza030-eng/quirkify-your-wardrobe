@@ -349,36 +349,33 @@ function StickyCTA() {
 
 function Index() {
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-bone">
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
-        />
-        <Nav />
-        <main>
-          <Hero />
-          <Marquee />
-          <Manifesto />
-          <Collection k="freshGarbage" id="shop" />
-          <DividerStitch />
-          <Collection k="emotionalDamage" id="emotional-damage" />
-          <DividerTape />
-          <Collection k="hostileWholesome" id="hostile-wholesome" />
-          <DividerBigType />
-          <Collection k="loudIntroverts" id="loud-introverts" />
-          <DividerMarquee text="LIMITED · LOUD · LIGHTLY UNHINGED" bg="bg-ink" fg="text-bone" />
-          <Reviews />
-          <Newsletter />
-        </main>
-        <Footer />
-        <CartDrawer />
-        <StickyCTA />
-      </div>
-    </CartProvider>
+    <div className="min-h-screen bg-bone">
+      <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      />
+      <Nav />
+      <main>
+        <Hero />
+        <Marquee />
+        <Manifesto />
+        <Collection k="freshGarbage" id="shop" />
+        <DividerStitch />
+        <Collection k="emotionalDamage" id="emotional-damage" />
+        <DividerTape />
+        <Collection k="hostileWholesome" id="hostile-wholesome" />
+        <DividerBigType />
+        <Collection k="loudIntroverts" id="loud-introverts" />
+        <DividerMarquee text="LIMITED · LOUD · LIGHTLY UNHINGED" bg="bg-ink" fg="text-bone" />
+        <Reviews />
+        <Newsletter />
+      </main>
+      <Footer />
+      <StickyCTA />
+    </div>
   );
 }
