@@ -22,8 +22,10 @@ export function ProductCard({ p, accent }: { p: Product; accent: "zap" | "shock"
           {p.badge}
         </span>
       )}
-      <div
-        className={`relative aspect-square overflow-hidden border-4 border-ink bg-cream shadow-brutal transition-all duration-200 ${shadow}`}
+      <Link
+        to="/products/$id"
+        params={{ id: p.id }}
+        className={`relative block aspect-square overflow-hidden border-4 border-ink bg-cream shadow-brutal transition-all duration-200 ${shadow}`}
       >
         <img
           src={p.image}
@@ -33,10 +35,12 @@ export function ProductCard({ p, accent }: { p: Product; accent: "zap" | "shock"
           height={800}
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-      </div>
+      </Link>
       <div className="mt-4 flex items-start justify-between gap-2">
         <div>
-          <h3 className="font-display text-xl uppercase leading-tight">{p.name}</h3>
+          <Link to="/products/$id" params={{ id: p.id }} className="font-display text-xl uppercase leading-tight hover:text-shock">
+            {p.name}
+          </Link>
           <p className="text-xs font-bold uppercase opacity-60">{p.color}</p>
           <p className="mt-1 text-xs italic opacity-70">"{p.tagline}"</p>
         </div>
